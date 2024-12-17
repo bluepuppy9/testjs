@@ -1590,4 +1590,19 @@ const data = [
   },
 ];
 
-//While chaining array methods,filter the card set by sets with at least 200 cards and print those set names and card count totals after sorting by total card count
+//While chaining array methods,
+//filter the card set by sets with
+//at least 200 cards and print those
+//set names and card count totals after
+//sorting by total card count
+const filteredsets = sets
+  .filter((set) => set.cardCount.total >= 200)
+  .sort((a, b) => b.cardCount.total - a.cardCount.total)
+  .map((set) => {
+    return {
+      name: set.name,
+      cardCount: set.cardCount.total,
+    };
+  });
+
+console.log(filteredsets);
